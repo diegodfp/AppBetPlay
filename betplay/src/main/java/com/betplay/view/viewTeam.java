@@ -63,9 +63,8 @@ public class viewTeam {
                 case 3:
                     System.out.println("ingrese el codigo del equipo que desea buscar");
                     codBusqueda = scanner.nextLine();
-                    Team eq = new Team();
-                    eq = controlador.equipos.get(codBusqueda);
-                    System.out.println("El equipo con codigo " + codBusqueda + " es el equipo " + eq.getNombre() + " de la ciudad de " + eq.getCiudad());
+                    equipo = controlador.equipos.get(codBusqueda);
+                    System.out.println("El equipo con codigo " + codBusqueda + " es el equipo " + equipo.getNombre() + " de la ciudad de " + equipo.getCiudad());
                     break;
                 case 4:
 
