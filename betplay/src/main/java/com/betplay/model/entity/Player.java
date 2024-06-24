@@ -3,6 +3,9 @@ package com.betplay.model.entity;
 public class Player extends Person {
     private int dorsal;
     private String posicion;
+    private String codigoEquipo;
+
+
     public Player() {
         super();
     }
@@ -10,11 +13,14 @@ public class Player extends Person {
         this.dorsal = dorsal;
         this.posicion = posicion;
     }
-    public Player(int id, String nombre, String apellido, int edad, int dorsal, String posicion) {
+    public Player(int id, String nombre, String apellido, int edad, int dorsal, String posicion, String codigoEquipo) {
         super(id, nombre, apellido, edad);
         this.dorsal = dorsal;
         this.posicion = posicion;
+        this.codigoEquipo = codigoEquipo;
     }
+
+
     public int getDorsal() {
         return dorsal;
     }
@@ -27,7 +33,21 @@ public class Player extends Person {
     public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
-
     
+    public String getCodigoEquipo() {
+        return codigoEquipo;
+    }
+    public void setCodigoEquipo(String codigoEquipo) {
+        this.codigoEquipo = codigoEquipo;
+    }
+
+    public String toString() {
+        return "El Jugador {" + getId() +
+                " Es: '" + getNombre() +" "+ getApellido() + '\'' +
+                ", tiene la dorsal #" + dorsal +
+                ", y juega en la posicion de '" + posicion + '\'' +
+                '}';
+    }
+   
     
 }

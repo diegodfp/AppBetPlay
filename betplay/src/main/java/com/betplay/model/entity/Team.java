@@ -1,4 +1,4 @@
-package com.betplay.model.entity;
+    package com.betplay.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ public class Team {
     private List<Player> lstJugadores;
     private List<Coach> lstEntrenadores;
     private List<Doctor> lstMasajistas;
+
     public Team() {
         lstEntrenadores = new ArrayList<Coach>();
         lstJugadores = new ArrayList<Player>();
@@ -43,6 +44,10 @@ public class Team {
     }
     public void setLstMasajistas(Doctor masajista) {
         this.lstMasajistas.add(masajista);
+    }
+    @Override
+    public String toString() {
+        return "Team [nombre del Equipo:" + nombre + ", de la ciudad: " + ciudad + "]";
     }
 
     
