@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import com.betplay.Controller;
 import com.betplay.model.entity.Coach;
+import com.betplay.model.entity.Doctor;
 import com.betplay.model.entity.Player;
 import com.betplay.model.entity.Team;
 
@@ -88,6 +89,12 @@ public class viewTeam {
                         List<Coach> entrenadores = equipo.getLstEntrenadores();
                          for (Coach entrenador : entrenadores) {
                             System.out.println(entrenador.toString());
+                        }
+
+                        // imprimiendo la lista de los medicos del equipo:
+                        List<Doctor> doctores = equipo.getLstMasajistas();
+                        for (Doctor doctor : doctores) {
+                            System.out.println(doctor.toString());
                         }
                     } else {
                         System.out.println("no hay un equipo con ese codigo, intente nuevamente");

@@ -36,5 +36,9 @@ public class Doctor extends Person {
     public void setCodigoEquipo(String codigoEquipo) {
         this.codigoEquipo = codigoEquipo;
     }
+    @Override
+    public String toString() {
+        return "Doctor" + getNombre() + " " + getApellido() + ", que cuenta con " + getExpYear() + " años de experiencia y cuenta con el titulo de " + getTitulo() + " ";
+    }
     
 }

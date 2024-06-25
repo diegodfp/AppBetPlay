@@ -121,11 +121,11 @@ public class viewDoctor {
                                 controlador.doctores.put(codBusqueda, doctorActualizado);
                                 break;
                             case 4:
-                                System.out.println("Ingrese el nuevo dorsal del doctor");
-                                int newDorsal = scanner.nextInt();
+                                System.out.println("Ingrese la experiencie del doctor");
+                                int newExp = scanner.nextInt();
                                 scanner.nextLine();
                                 doctorActualizado = controlador.doctores.get(codBusqueda);
-                                doctorActualizado.setExpYear(choice);(newDorsal);
+                                doctorActualizado.setExpYear(newExp);
                                 controlador.doctores.put(codBusqueda, doctorActualizado);
                                 break;
                             case 5:
@@ -165,7 +165,7 @@ public class viewDoctor {
                     if (controlador.doctores.containsKey(codBusqueda)) {
                         Doctor doctorBuscado = controlador.doctores.get(codBusqueda);
                         System.out.println(doctorBuscado);
-
+                        System.out.println(" y pertenece al equipo " + controlador.equipos.get(doctorBuscado.getCodigoEquipo()));
                     } else {
                         System.out.println("no hay un doctor con ese codigo, intente nuevamente");
                         continue;
