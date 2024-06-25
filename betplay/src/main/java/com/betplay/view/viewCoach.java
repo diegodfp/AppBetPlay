@@ -58,9 +58,9 @@ public class viewCoach {
                             controlador.entrenadores.put(codigojugador, entrenador);
 
                             Team agregarEntrenador = controlador.equipos.get(codigoEquipo);
-                            
+
                             agregarEntrenador.setLstEntrenadores(entrenador);
-                            
+
                             controlador.equipos.put(codigoEquipo, agregarEntrenador);
                             System.out.println("Entrenador creado correctamente");
                             System.out.println("presione cualquier tecla para continuar");
@@ -125,7 +125,7 @@ public class viewCoach {
                                 controlador.entrenadores.put(codBusqueda, entrenadorActualizado);
                                 break;
                             case 5:
-                                
+
                                 break;
                             case 6:
                                 System.out.println("Presione cualquier tecla para salir");
@@ -135,7 +135,6 @@ public class viewCoach {
                                 break;
                         }
 
-                       
                     } else {
                         System.out.println("codigo de jugador no encontrado intente nuevamente");
                         continue;
@@ -148,7 +147,8 @@ public class viewCoach {
                     if (controlador.entrenadores.containsKey(codBusqueda)) {
                         Coach entrenadorBuscado = controlador.entrenadores.get(codBusqueda);
                         System.out.println(entrenadorBuscado);
-
+                        String equipo = controlador.equipos.get(entrenadorBuscado.getCodigoEquipo()).getNombre();
+                        System.out.println("Y Es entrenador del " + equipo);
                     } else {
                         System.out.println("no hay un entrenador con ese codigo, intente nuevamente");
                         continue;
@@ -166,32 +166,36 @@ public class viewCoach {
                         if (equipoEliminarJugador != null) {
                             equipoEliminarJugador.getLstJugadores().remove(jugadorEliminado);
                         }
-                        System.out.println("jugador el1iminado correctamente");
+                        System.out.println("entrenador el1iminado correctamente");
                         System.out.println("presione cualquier tecla para continuar");
                         scanner.nextLine();
                     } else {
-                        System.out.println("codigo de jugador no encontrado intente nuevamente");
+                        System.out.println("codigo de entrenador no encontrado intente nuevamente");
                         continue;
                     }
 
                     break;
 
                 case 5:
+                    if (controlador.entrenadores.isEmpty()) {
+                        System.out.println(" Por el momento no hay entrenadores disponibles, debe crearlos Primero");
+                    } else {
+                        // impresion sin las llaves
+                        Collection<Coach> values = controlador.entrenadores.values();
+                        for (Coach coach : values) {
+                            System.out.println(coach.toString());
 
-                    // impresion sin las llaves
-                    Collection<Coach> values = controlador.entrenadores.values();
-                    for (Coach coach : values) {
-                        System.out.println(coach.toString());
-
+                        }
+                        /*
+                         * impresion, llave y valor. Se modifico el toString de la clase Team
+                         * for (Map.Entry<String, Team> entry : controlador.jugadors.entrySet()) {
+                         * System.out.println("Key: " + entry.getKey() + ", Value: " +
+                         * entry.getValue());
+                         * }
+                         */
+                        break;
                     }
-                    /*
-                     * impresion, llave y valor. Se modifico el toString de la clase Team
-                     * for (Map.Entry<String, Team> entry : controlador.jugadors.entrySet()) {
-                     * System.out.println("Key: " + entry.getKey() + ", Value: " +
-                     * entry.getValue());
-                     * }
-                     */
-                    break;
+
                 case 6:
                     return;
                 case 7:

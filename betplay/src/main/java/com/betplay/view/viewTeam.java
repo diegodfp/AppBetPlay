@@ -18,7 +18,7 @@ public class viewTeam {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-           
+
             System.out.println("1. Crear Equipo");
             System.out.println("2. Actualizar Equipo");
             System.out.println("3. Buscar Equipo");
@@ -78,23 +78,36 @@ public class viewTeam {
                         equipo = controlador.equipos.get(codBusqueda);
                         System.out.println("El equipo con codigo " + codBusqueda + " es el equipo " + equipo.getNombre()
                                 + " de la ciudad de " + equipo.getCiudad());
-                        System.out.println("y cuenta con los siguientes jugadores ");
-                        // Imprimiendo la lista de jugadores del equipo, 
-                         List<Player> jugadores = equipo.getLstJugadores();
-                         for (Player jugador : jugadores) {
-                            System.out.println(jugador.toString());
+                        if (equipo.getLstJugadores().size() > 0) {
+                            System.out.println("y cuenta con los siguientes jugadores ");
+                            // Imprimiendo la lista de jugadores del equipo,
+                            List<Player> jugadores = equipo.getLstJugadores();
+                            for (Player jugador : jugadores) {
+                                System.out.println(jugador.toString());
+                            }
+                        } else {
+                            System.out.println("Este equipo, Por el momento no tiene jugadores asignados");
+                        }
+                        if (equipo.getLstEntrenadores().size() > 0) {
+                            System.out.println("\n Cuenta con los siguientes entrenadores: ");
+                            // imprimiendo la lista de entrenadores del equipo:
+                            List<Coach> entrenadores = equipo.getLstEntrenadores();
+                            for (Coach entrenador : entrenadores) {
+                                System.out.println(entrenador.toString());
+                            }
+                        } else {
+                            System.out.println("Por el momento no tiene Entrenadoes asignados");
                         }
 
-                        // imprimiendo la lista de entrenadores del equipo:
-                        List<Coach> entrenadores = equipo.getLstEntrenadores();
-                         for (Coach entrenador : entrenadores) {
-                            System.out.println(entrenador.toString());
-                        }
+                        if (equipo.getLstMasajistas().isEmpty()) {
+                            System.out.println("No se le han asignado Preparadores Fisicos a este equipo aun!");
+                        } else {
+                            // imprimiendo la lista de los medicos del equipo:
+                            List<Doctor> doctores = equipo.getLstMasajistas();
+                            for (Doctor doctor : doctores) {
+                                System.out.println(doctor.toString());
+                            }
 
-                        // imprimiendo la lista de los medicos del equipo:
-                        List<Doctor> doctores = equipo.getLstMasajistas();
-                        for (Doctor doctor : doctores) {
-                            System.out.println(doctor.toString());
                         }
                     } else {
                         System.out.println("no hay un equipo con ese codigo, intente nuevamente");
@@ -116,18 +129,23 @@ public class viewTeam {
                     break;
 
                 case 5:
+                    if (controlador.equipos.isEmpty()) {
+                        System.out.println(" Lo lamento, aun no hay equipos para mostrar. Agreguelos con la opcion 1!");
+                        break;
+                    } else {
+                        // impresion sin las llaves
+                        Collection<Team> values = controlador.equipos.values();
+                        for (Team team : values) {
+                            System.out.println(team.toString());
 
-                    // impresion sin las llaves
-                    Collection<Team> values = controlador.equipos.values();
-                    for (Team team : values) {
-                        System.out.println(team.toString());
+                        }
+                        // impresion, llave y valor. Se modifico el toString de la clase Team
+                        for (Map.Entry<String, Team> entry : controlador.equipos.entrySet()) {
+                            System.out.println("Codigo" + entry.getKey() + ",  " + entry.getValue());
+                        }
+                        break;
+                    }
 
-                    }
-                    // impresion, llave y valor. Se modifico el toString de la clase Team
-                    for (Map.Entry<String, Team> entry : controlador.equipos.entrySet()) {
-                        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
-                    }
-                    break;
                 case 6:
                     return;
                 case 7:

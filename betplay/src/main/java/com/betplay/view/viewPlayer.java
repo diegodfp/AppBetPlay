@@ -166,6 +166,8 @@ public class viewPlayer {
                                    if (controlador.jugadores.containsKey(codBusqueda)) {
                                           Player jugadorBuscado = controlador.jugadores.get(codBusqueda);
                                           System.out.println(jugadorBuscado);
+                                          String equipo = controlador.equipos.get(jugadorBuscado.getCodigoEquipo()).getNombre();
+                                          System.out.println("Y juega para el equipo: " + equipo);
 
                                    } else {
                                           System.out.println("no hay un jugador con ese codigo, intente nuevamente");
@@ -194,8 +196,11 @@ public class viewPlayer {
                                    break;
 
                             case 5:
-
-                                   // impresion sin las llaves
+                                   if (controlador.jugadores.isEmpty()) {
+                                          System.out.println(" Lo lamento, aun no hay jugadores inscritos, agreguelos con la opcion 1!");
+                                          break;
+                                   }else{
+                                          // impresion sin las llaves
                                    Collection<Player> values = controlador.jugadores.values();
                                    for (Player player : values) {
                                           System.out.println(player.toString());
@@ -209,6 +214,9 @@ public class viewPlayer {
                                     * }
                                     */
                                    break;
+                                   }
+                                   
+                                   
                             case 6:
                                    return;
                             case 7:

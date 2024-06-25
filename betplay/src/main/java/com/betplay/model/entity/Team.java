@@ -47,7 +47,7 @@ public class Team {
     }
     @Override
     public String toString() {
-        return "Team [nombre del Equipo:" + nombre + ", de la ciudad: " + ciudad + "]";
+        return " [nombre del Equipo:" + nombre + ", de la ciudad: " + ciudad + "]";
     }
 
     

@@ -42,11 +42,10 @@ public class Player extends Person {
     }
 
     public String toString() {
-        return "El Jugador {" + getId() +
-                " Es: '" + getNombre() +" "+ getApellido() + '\'' +
+        return "Jugador " + getId() +
+                " : '" + getNombre() +" "+ getApellido() + '\'' +
                 ", tiene la dorsal #" + dorsal +
-                ", y juega en la posicion de '" + posicion + '\'' +
-                '}';
+                ", y juega en la posicion de '" + posicion + '\'' ;
     }
    
     

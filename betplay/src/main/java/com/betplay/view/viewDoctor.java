@@ -57,7 +57,7 @@ public class viewDoctor {
                             int expDoctor = scanner.nextInt();
                             scanner.nextLine();
                             Doctor doctor = new Doctor(iddoctor, nombredoctor, apellidodoctor,
-                                    edaddoctor, tituloDoctor , expDoctor , codigoEquipo);
+                                    edaddoctor, tituloDoctor, expDoctor, codigoEquipo);
                             controlador.doctores.put(codigoDoctor, doctor);
 
                             Team agregardoctor = controlador.equipos.get(codigoEquipo);
@@ -165,7 +165,8 @@ public class viewDoctor {
                     if (controlador.doctores.containsKey(codBusqueda)) {
                         Doctor doctorBuscado = controlador.doctores.get(codBusqueda);
                         System.out.println(doctorBuscado);
-                        System.out.println(" y pertenece al equipo " + controlador.equipos.get(doctorBuscado.getCodigoEquipo()));
+                        System.out.println(
+                                " y esta asignado al equipo " + controlador.equipos.get(doctorBuscado.getCodigoEquipo()).getNombre());
                     } else {
                         System.out.println("no hay un doctor con ese codigo, intente nuevamente");
                         continue;
@@ -194,13 +195,18 @@ public class viewDoctor {
                     break;
 
                 case 5:
+                    if (controlador.doctores.isEmpty()) {
+                        System.out.println(" ¡Aun no hay preparadores fisicos asignados!");
+                    } else {
+                        // impresion sin las llaves
+                        Collection<Doctor> values = controlador.doctores.values();
+                        for (Doctor player : values) {
+                            System.out.println(player.toString());
 
-                    // impresion sin las llaves
-                    Collection<Doctor> values = controlador.doctores.values();
-                    for (Doctor player : values) {
-                        System.out.println(player.toString());
-
+                        }
+                        break;
                     }
+
                     /*
                      * impresion, llave y valor. Se modifico el toString de la clase Team
                      * for (Map.Entry<String, Team> entry : controlador.doctors.entrySet()) {
@@ -208,7 +214,7 @@ public class viewDoctor {
                      * entry.getValue());
                      * }
                      */
-                    break;
+
                 case 6:
                     return;
                 case 7:
