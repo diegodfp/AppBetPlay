@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.Scanner;
 
 import com.betplay.Controller;
-import com.betplay.model.entity.Coach;
+
 import com.betplay.model.entity.Doctor;
-import com.betplay.model.entity.Player;
+
 import com.betplay.model.entity.Team;
 
 public class viewDoctor {
